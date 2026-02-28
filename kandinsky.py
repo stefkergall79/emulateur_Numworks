@@ -43,7 +43,8 @@ def draw_string(text, x, y, color = "black", background = "white"):
         raise TypeError(f"can't convert {type(text).__name__} to str implicitly")
     
     __screen.blit(scale(__fonte_kandinsky.render(text, False, color, background),
-                        (__Ratio_ecran * 10 * len(text), 18 * __Ratio_ecran)),
+                        (__Ratio_ecran * 10 * (len(text)-text.count("\u0301")),
+                         18 * __Ratio_ecran)),
                   (x * __Ratio_ecran, y * __Ratio_ecran))
     flip()
 
