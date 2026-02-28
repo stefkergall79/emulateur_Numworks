@@ -2,6 +2,7 @@
 Émuler n'importe quel script Python prévu pour [Numworks](https://www.numworks.com/fr/) sur votre PC, directement via l'application python.
 
 **ATTENTION ! Vous avez besoin du module `pygame` sur votre PC pour faire fonctionner ce dépôt !**
+Clonez ce dépôt sur votre PC et ajoutez-y votre script Python prévu pour Numworks. Vous aurez une Numworks en grand écran avec un clavier qui fonctionne, bien que peu intuitif.
 
 Dans ce projet  :
  - deux scripts Python `kandinsky.py` et `ion.py`, qui permettent d'émuler les modules du même nom sur les calculatrices Numworks.
