@@ -6,7 +6,7 @@ from pygame import init
 from pygame.transform import scale
 init()
 
-__Ratio_ecran = 3
+__Ratio_ecran = 3 #facteur d'agrandissement par rapport à l'écran de Numworks.
 
 __screen = set_mode((320 * __Ratio_ecran, 222 * __Ratio_ecran))
 __screen.fill("white")
