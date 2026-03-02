@@ -161,7 +161,7 @@ class P:
 
 D = {
   'l': P((0, 60, 0), "Alliés", nb_l, 15, 11, 192),
-  'x': P((80, 80, 200), "Allemands", nb_x, 14, 23, -6)
+  'x': P((80, 80, 200), "Allemands", nb_x, 14, 24, -6)
 }
 
 class C:
