@@ -12,4 +12,4 @@ Dans ce projet  :
  - une icône `.bmp` de Numworks pour l'image d'application.
  - une fonte `.bdf` monospacée 10×18 comme celle de Numworks. Elle est très moche, faîtes un ticket si vous en avez une autre avec les même spécifications.
 
-Grâce à ce projet, j'ai pu coder le [Mémoire44 pour Calculatrice](https://my.numworks.com/python/memoire44) !
+Grâce à ce projet, j'ai pu coder le [Mémoire44 pour Numworks](https://my.numworks.com/python/memoire44) !
