@@ -178,7 +178,7 @@ class C:
   
   def aff(self):
     if aff_tuto:
-      draw_string("Tuto →", 218, self.y)
+      draw_string("TUTORIEL →", 178, self.y)
       draw_string("Ans", 285, self.y, "white", cm44)
     draw_string(self.text, 0, self.y, self.plr.col)
 
