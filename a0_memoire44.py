@@ -33,7 +33,7 @@ fill_rect(114,9,71,20,"white")
 fill_rect(185,9,21,20,"red")
 draw_string("Mᴇ́MOIRE",115,10,"white",cm44)
 draw_string("44",185,10,"red","white")    
-draw_string("Choisissez votre scénario :", 15, 30, "black", cm44)
+draw_string("Choisissez votre scénario :", 15, 30, [0]*3, cm44)
 
 while not O():
   if ch:
@@ -42,7 +42,7 @@ while not O():
       st = len(L)
     fill_rect(15, 60, 305, 182, cm44)
     draw_selection_string(L[(ind_scen//mx)*mx:st],
-                          15, 60, "black", cm44, ind_scen%mx)
+                          15, 60, [0]*3, cm44, ind_scen%mx)
     ch = 0
     sleep(0.2)
   
@@ -119,7 +119,7 @@ class P:
         if ch:
           cur_card = self.jeu[ind_card]
           draw_selection_string(self.jeu, 15, 35,
-                                "black", "white", ind_card)
+                                [0]*3, "white", ind_card)
           ch = 0
           sleep(0.1)
 
@@ -143,7 +143,7 @@ class P:
           while not O():
             if ch:
               draw_selection_string(choix, 15, 70,
-                                    "black", "white", ind_card)
+                                    [0]*3, "white", ind_card)
               ch = 0
 
             ch = changed_selected(ind_card, 1)
@@ -194,7 +194,7 @@ def ter_cur(se = sel):
 def aff_medailles():
   for plr in D.values():
     for ii in range(med_vic):
-      for ee in ((5, "black"),
+      for ee in ((5, [0]*3),
                  (4, plr.col if plr.med > ii else "white")):
         fill_circle(X_dep + 10 + 30*ii, Y_dep + plr.y_med, *ee)
 
@@ -209,11 +209,11 @@ def draw_hex(xx,yy,col):
 def plateau():
   for yy in range(5):
     for xx in range(13):
-      draw_hex(22*xx+X_dep, 40*yy+Y_dep+7, "black")
+      draw_hex(22*xx+X_dep, 40*yy+Y_dep+7, [0]*3)
   for yy in range(4):
     for xx in range(13):
       fill_rect(x_in((0, xx)) + 11, Y_dep + 40*yy + 27,
-                1, 13, "black")
+                1, 13, [0]*3)
 
 def fill_hex(xx,yy,col):
   fill_rect(xx+1 , yy, 21, 14, col)
@@ -313,7 +313,7 @@ def draw_hex2(xx,yy,col):
   draw_line(xx+1, yy+12, xx+10, yy+18, col)
 
 def select(aj, po, col):
-  for co in [[ter_cur(), "black"],
+  for co in [[ter_cur(), [0]*3],
               [col]*2]:
     xx, yy = pos(sel)
     draw_hex2(xx, yy, co[0])
@@ -358,7 +358,7 @@ def tirer_des():
   nbd = press_a_number([48,42,43,44,36,37,38])
   for ii in range(nbd):
     fill_rect(X_dep+298, Y_dep+3+ii*25, 15, 15,
-              choice(["blue"]*2 + ["black","orange","green",'purple']))
+              choice(["blue"]*2 + [[0]*3,"orange","green",'purple']))
 
 
 #Programme principal.
@@ -401,7 +401,7 @@ while all(D[p].med < med_vic for p in D):
       tabl_unit[ini[0]][ini[1]] = False
       xx, yy = pos(ini)
       fill_hex(xx,yy,ter_cur(ini))
-      draw_hex(xx,yy,"black")
+      draw_hex(xx,yy,[0]*3)
       
       for bu in bunkers:
         if bu == ini:
@@ -509,7 +509,7 @@ while all(D[p].med < med_vic for p in D):
         D[plr].med += 1
         xx, yy = pos(ob)
         fill_hex(xx, yy, ter_cur(ob))
-        draw_hex(xx, yy, "black")
+        draw_hex(xx, yy, [0]*3)
         for bu in bunkers:
           if ob[:2] == bu:
             fill_rect(xx+1, yy, 21, 13, v)
