@@ -44,6 +44,11 @@ liste_touches_convertisseur = (
     )
 
 def keydown(k):
+    """
+    Renvoie True si touche k est enfoncée
+
+    Renvoie True si la touche k placée en argument est appuyée et False sinon.
+    """
     for ev in get():
         if ev.type == QUIT:
             quit()

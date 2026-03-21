@@ -44,14 +44,14 @@ def get_pixel(x, y):
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def set_pixel(x, y, col):
+def set_pixel(x, y, color):
     """
     Colore le pixel (x,y)
 
-    Allume le pixel x,y de la couleur col.
+    Allume le pixel x,y de la couleur color.
     """
     __check_int_type((x, y))
-    update(rect(__screen, col,
+    update(rect(__screen, color,
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
 
