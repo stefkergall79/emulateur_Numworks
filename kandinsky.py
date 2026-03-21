@@ -7,25 +7,28 @@ from pygame.transform import scale
 init()
 
 __Ratio_ecran = 3 #facteur d'agrandissement par rapport à l'écran d'une Numworks.
-
+__fonte_kandinsky = Font("ter-u18b.bdf")
 __screen = set_mode((320 * __Ratio_ecran, 222 * __Ratio_ecran))
 __screen.fill("white")
 set_caption("Numworks Calculator")
 set_icon(load("icon_Numworks.bmp"))
 flip()
 
+
 def __check_int_type(args):
     for i in args:
         if not isinstance(i, int):
             raise TypeError(f"can't convert {type(i).__name__} to int")
 
-def set_pixel(x, y, col):
+
+def color(r, g, b):
     """
-    Colore le pixel (x,y)
+    Définit une couleur rvb
     """
-    __check_int_type((x, y))
-    update(rect(__screen, col,
-                (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
+    for i in r,g,b:
+        if not isinstance(i, (float, int)):
+            raise TypeError(f"can't convert {type(i).__name__} to float")
+    return (r, g, b)
 
 
 def get_pixel(x, y):
@@ -36,15 +39,15 @@ def get_pixel(x, y):
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def fill_rect(x, y, w, h, col):
+def set_pixel(x, y, col):
     """
-    Remplit un rectangle
+    Colore le pixel (x,y)
     """
-    __check_int_type((x, y, w, h))
-    update(rect(__screen, col, (x * __Ratio_ecran, y * __Ratio_ecran,
-                                w * __Ratio_ecran, h * __Ratio_ecran)))
+    __check_int_type((x, y))
+    update(rect(__screen, col,
+                (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
-__fonte_kandinsky = Font("ter-u18b.bdf")
+
 def draw_string(text, x, y, color = "black", background = "white"):
     """
     Affiche un texte au pixel (x,y)
@@ -58,11 +61,11 @@ def draw_string(text, x, y, color = "black", background = "white"):
                   (x * __Ratio_ecran, y * __Ratio_ecran))
     flip()
 
-def color(r, g, b):
+
+def fill_rect(x, y, w, h, col):
     """
-    Définit une couleur rvb
+    Remplit un rectangle
     """
-    for i in r,g,b:
-        if not isinstance(i, (float, int)):
-            raise TypeError(f"can't convert {type(i).__name__} to float")
-    return (r, g, b)
+    __check_int_type((x, y, w, h))
+    update(rect(__screen, col, (x * __Ratio_ecran, y * __Ratio_ecran,
+                                w * __Ratio_ecran, h * __Ratio_ecran)))
