@@ -24,6 +24,9 @@ def __check_int_type(args):
 def color(r, g, b):
     """
     Définit une couleur rvb
+
+    Génère la valeur de la couleur r,g,b.
+    Vous pouvez aussi simplement utiliser un tuple pour définir une couleur : (r,g,b).
     """
     for i in r,g,b:
         if not isinstance(i, (float, int)):
@@ -34,6 +37,8 @@ def color(r, g, b):
 def get_pixel(x, y):
     """
     Renvoie la couleur du pixel (x,y)
+
+    Renvoie la couleur du pixel aux coordonnées x,y sous forme de tuple (r,g,b).
     """
     __check_int_type((x,y))
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
@@ -42,6 +47,8 @@ def get_pixel(x, y):
 def set_pixel(x, y, col):
     """
     Colore le pixel (x,y)
+
+    Allume le pixel x,y de la couleur col.
     """
     __check_int_type((x, y))
     update(rect(__screen, col,
@@ -51,6 +58,9 @@ def set_pixel(x, y, col):
 def draw_string(text, x, y, color = "black", background = "white"):
     """
     Affiche un texte au pixel (x,y)
+
+    Affiche le texte text aux coordonnées x,y.
+    Les arguments color (couleur du texte) et background (couleur de l’arrière plan du texte) sont optionnels.
     """
     __check_int_type((x,y))
     if not isinstance(text, str):
@@ -65,6 +75,8 @@ def draw_string(text, x, y, color = "black", background = "white"):
 def fill_rect(x, y, w, h, col):
     """
     Remplit un rectangle
+
+    Remplit un rectangle de largeur w et de hauteur h avec la couleur col au point de coordonnées x et y.
     """
     __check_int_type((x, y, w, h))
     update(rect(__screen, col, (x * __Ratio_ecran, y * __Ratio_ecran,
