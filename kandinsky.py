@@ -62,4 +62,7 @@ def color(r, g, b):
     """
     Définit une couleur rvb
     """
+    for i in r,g,b:
+        if not isinstance(i, (float, int)):
+            raise TypeError(f"can't convert {type(text).__name__} to float")
     return (r, g, b)
