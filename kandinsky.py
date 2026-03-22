@@ -15,7 +15,7 @@ set_icon(load("icon_Numworks.bmp"))
 flip()
 
 
-def __check_int_type(args):
+def __check_int_type(*args):
     for i in args:
         if not isinstance(i, int):
             raise TypeError(f"can't convert {type(i).__name__} to int")
@@ -40,7 +40,7 @@ def get_pixel(x, y):
 
     Renvoie la couleur du pixel aux coordonnées x,y sous forme de tuple (r,g,b).
     """
-    __check_int_type((x,y))
+    __check_int_type(x,y)
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
@@ -50,7 +50,7 @@ def set_pixel(x, y, color):
 
     Allume le pixel x,y de la couleur color.
     """
-    __check_int_type((x, y))
+    __check_int_type(x, y)
     update(rect(__screen, color,
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
@@ -62,7 +62,7 @@ def draw_string(text, x, y, color = "black", background = "white"):
     Affiche le texte text aux coordonnées x,y.
     Les arguments color (couleur du texte) et background (couleur de l’arrière plan du texte) sont optionnels.
     """
-    __check_int_type((x,y))
+    __check_int_type(x,y)
     if not isinstance(text, str):
         raise TypeError(f"can't convert '{type(text).__name__}' object to str implicitly")
     __screen.blit(scale(__fonte_kandinsky.render(text, False, color, background),
@@ -78,6 +78,6 @@ def fill_rect(x, y, w, h, col):
 
     Remplit un rectangle de largeur w et de hauteur h avec la couleur col au point de coordonnées x et y.
     """
-    __check_int_type((x, y, w, h))
+    __check_int_type(x, y, w, h)
     update(rect(__screen, col, (x * __Ratio_ecran, y * __Ratio_ecran,
                                 w * __Ratio_ecran, h * __Ratio_ecran)))
