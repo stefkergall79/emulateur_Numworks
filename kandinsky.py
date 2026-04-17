@@ -22,7 +22,7 @@ def __check_int_type(*args: Any) -> None:
             raise TypeError(f"can't convert {type(i).__name__} to int")
 
 
-def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int]:
+def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int, int, int]:
     """
     Définit une couleur rvb
 
@@ -35,7 +35,7 @@ def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int]:
     return (r, g, b)
 
 
-def get_pixel(x: int, y: int) -> tuple[int]:
+def get_pixel(x: int, y: int) -> tuple[int, int, int]:
     """
     Renvoie la couleur du pixel (x,y)
 
@@ -45,7 +45,7 @@ def get_pixel(x: int, y: int) -> tuple[int]:
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def set_pixel(x: int, y: int, color: tuple[int]|str) -> None:
+def set_pixel(x: int, y: int, color: tuple[int, int, int]|str) -> None:
     """
     Colore le pixel (x,y)
 
@@ -56,7 +56,7 @@ def set_pixel(x: int, y: int, color: tuple[int]|str) -> None:
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
 
-def draw_string(text: str, x: int, y: int, color: tuple[int]|str = "black", background: tuple[int]|str = "white") -> None:
+def draw_string(text: str, x: int, y: int, color: tuple[int, int, int]|str = "black", background: tuple[int]|str = "white") -> None:
     """
     Affiche un texte au pixel (x,y)
 
@@ -73,7 +73,7 @@ def draw_string(text: str, x: int, y: int, color: tuple[int]|str = "black", back
     flip()
 
 
-def fill_rect(x: int, y: int, w: int, h: int, col: tuple[int]|str) -> None:
+def fill_rect(x: int, y: int, w: int, h: int, col: tuple[int, int, int]|str) -> None:
     """
     Remplit un rectangle
 
