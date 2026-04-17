@@ -8,7 +8,7 @@ from pygame.transform import scale
 init()
 
 __Ratio_ecran = 3 #facteur d'agrandissement par rapport à l'écran d'une Numworks.
-__fonte_kandinsky = Font("ter-u18b.bdf")
+__fonte_kandinsky = Font("ter-u18b.bdf", 18)
 __screen = set_mode((320 * __Ratio_ecran, 222 * __Ratio_ecran))
 __screen.fill("white")
 set_caption("Numworks Calculator")
@@ -22,7 +22,7 @@ def __check_int_type(*args: Any) -> None:
             raise TypeError(f"can't convert {type(i).__name__} to int")
 
 
-def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int, int, int]:
+def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple:
     """
     Définit une couleur rvb
 
@@ -32,10 +32,10 @@ def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int, 
     for i in r,g,b:
         if not isinstance(i, (float, int)):
             raise TypeError(f"can't convert {type(i).__name__} to float")
-    return (r, g, b)
+    return (int(r), int(g), int(b))
 
 
-def get_pixel(x: int, y: int) -> tuple[int, int, int]:
+def get_pixel(x: int, y: int) -> tuple[int]:
     """
     Renvoie la couleur du pixel (x,y)
 
