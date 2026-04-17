@@ -1,3 +1,4 @@
+from typing import Any
 from pygame.draw import rect
 from pygame.display import set_mode, flip, set_caption, set_icon, update
 from pygame.image import load
@@ -15,13 +16,13 @@ set_icon(load("icon_Numworks.bmp"))
 flip()
 
 
-def __check_int_type(*args):
+def __check_int_type(*args: Any) -> None:
     for i in args:
         if not isinstance(i, int):
             raise TypeError(f"can't convert {type(i).__name__} to int")
 
 
-def color(r, g, b):
+def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int]:
     """
     Définit une couleur rvb
 
@@ -34,7 +35,7 @@ def color(r, g, b):
     return (r, g, b)
 
 
-def get_pixel(x, y):
+def get_pixel(x: int, y: int) -> tuple[int]:
     """
     Renvoie la couleur du pixel (x,y)
 
@@ -44,7 +45,7 @@ def get_pixel(x, y):
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def set_pixel(x, y, color):
+def set_pixel(x: int, y: int, color: tuple[int]|str) -> None:
     """
     Colore le pixel (x,y)
 
@@ -55,7 +56,7 @@ def set_pixel(x, y, color):
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
 
-def draw_string(text, x, y, color = "black", background = "white"):
+def draw_string(text: str, x: int, y: int, color: tuple[int]|str = "black", background: tuple[int]|str = "white") -> None:
     """
     Affiche un texte au pixel (x,y)
 
@@ -72,7 +73,7 @@ def draw_string(text, x, y, color = "black", background = "white"):
     flip()
 
 
-def fill_rect(x, y, w, h, col):
+def fill_rect(x: int, y: int, w: int, h: int, col: tuple[int]|str) -> None:
     """
     Remplit un rectangle
 
