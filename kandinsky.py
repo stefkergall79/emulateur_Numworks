@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Iterable
 from pygame.draw import rect
 from pygame.display import set_mode, flip, set_caption, set_icon, update
 from pygame.image import load
@@ -45,7 +45,7 @@ def get_pixel(x: int, y: int) -> tuple:
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def set_pixel(x: int, y: int, color: tuple|str) -> None:
+def set_pixel(x: int, y: int, color: Iterable) -> None:
     """
     Colore le pixel (x,y)
 
@@ -56,7 +56,7 @@ def set_pixel(x: int, y: int, color: tuple|str) -> None:
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
 
-def draw_string(text: str, x: int, y: int, color: tuple|str = "black", background: tuple|str = "white") -> None:
+def draw_string(text: str, x: int, y: int, color: Iterable = "black", background: Iterable = "white") -> None:
     """
     Affiche un texte au pixel (x,y)
 
@@ -73,7 +73,7 @@ def draw_string(text: str, x: int, y: int, color: tuple|str = "black", backgroun
     flip()
 
 
-def fill_rect(x: int, y: int, w: int, h: int, col: tuple|str) -> None:
+def fill_rect(x: int, y: int, w: int, h: int, col: Iterable) -> None:
     """
     Remplit un rectangle
 
