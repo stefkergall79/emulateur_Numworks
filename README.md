@@ -3,10 +3,10 @@
 
 **ATTENTION ! Vous avez besoin du module `pygame` sur votre PC pour faire fonctionner ce dépôt !**
 
-Clonez ce dépôt sur votre PC (`git clone https://github.com/stefkergall79/emulateur_Numworks.git`) et ajoutez-y votre script Python prévu pour Numworks. Vous aurez une Numworks en grand écran et avec un clavier qui fonctionne, bien que peu intuitif.
+Clonez ce dépôt sur votre PC et ajoutez-y votre script Python prévu pour Numworks. Vous aurez une Numworks en grand écran et avec un clavier pour interagir.
 
 Dans ce projet  :
- - deux scripts Python `kandinsky.py` et `ion.py`, qui permettent d'émuler les modules du même nom sur les calculatrices Numworks.
+ - deux scripts Python, `kandinsky.py` et `ion.py`, qui permettent d'émuler les modules du même nom sur les calculatrices Numworks.
    - `kandinsky` est (beaucoup) plus lent que sur Numworks.
    - `ion` est assez complexe à utiliser, voir les correspondances entre les touches Numworks et celles de votre PC dans le code source.
  - une icône `.bmp` de Numworks pour l'image d'application.
