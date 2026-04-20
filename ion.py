@@ -41,7 +41,7 @@ liste_touches_convertisseur = (
     K_KP_PLUS, K_KP_MINUS, None,
     K_KP0, K_KP_PERIOD, K_COLON,
     K_EXCLAIM, K_KP_ENTER
-    )
+)
 
 def keydown(k):
     """
