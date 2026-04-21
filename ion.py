@@ -51,6 +51,8 @@ def keydown(k):
     """
     if any(ev.type == QUIT for ev in get()):
         quit()
+    if get_pressed()[liste_touches_convertisseur[k]]:
+        return True
     if get_pressed()[K_ESCAPE]:
         raise KeyboardInterrupt
-    return get_pressed()[liste_touches_convertisseur[k]]
+    return False
