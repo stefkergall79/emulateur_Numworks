@@ -49,7 +49,8 @@ def keydown(k):
 
     Renvoie True si la touche k placée en argument est appuyée et False sinon.
     """
-    for ev in get():
-        if ev.type == QUIT:
-            quit()
+    if any(ev.type == QUIT for ev in get()):
+        quit()
+    if get_pressed()[K_ESCAPE]:
+        raise KeyboardInterrupt
     return get_pressed()[liste_touches_convertisseur[k]]
