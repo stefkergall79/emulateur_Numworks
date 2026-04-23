@@ -10,6 +10,5 @@ Dans ce projet  :
    - `kandinsky` est (beaucoup) plus lent que sur Numworks.
    - `ion` est assez complexe à utiliser, voir les correspondances entre les touches Numworks et celles de votre PC dans le code source.
  - une icône `.bmp` de Numworks pour l'image d'application.
- - une fonte `.bdf` monospacée 10×18, comme celle de Numworks. Elle est très moche, faîtes un ticket si vous en avez une autre avec les même spécifications.
 
 Grâce à ce projet, j'ai pu coder sur mon PC le [Mémoire44 pour Numworks](https://my.numworks.com/python/memoire44) !
