@@ -22,7 +22,7 @@ def __check_int_type(*args: Any) -> None:
             raise TypeError(f"can't convert {type(i).__name__} to int")
 
 
-def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple:
+def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple[int, int, int]:
     """
     Définit une couleur rvb
 
@@ -35,7 +35,7 @@ def color(r: int|bool|float, g:int|float|bool, b: int|float|bool) -> tuple:
     return (int(r), int(g), int(b))
 
 
-def get_pixel(x: int, y: int) -> tuple:
+def get_pixel(x: int, y: int) -> tuple[int]:
     """
     Renvoie la couleur du pixel (x,y)
 
