@@ -1,14 +1,14 @@
-from typing import Any, Iterable
+from typing import Any, Sequence
 from pygame.draw import rect
 from pygame.display import set_mode, flip, set_caption, set_icon, update
 from pygame.image import load
-from pygame.font import Font
+from pygame.font import SysFont
 from pygame import init
 from pygame.transform import scale
 init()
 
 __Ratio_ecran = 3 #facteur d'agrandissement par rapport à l'écran d'une Numworks.
-__fonte_kandinsky = Font("ter-u18b.bdf", 18)
+__fonte_kandinsky = SysFont('freemono', 18 *__Ratio_ecran,)
 __screen = set_mode((320 * __Ratio_ecran, 222 * __Ratio_ecran))
 __screen.fill("white")
 set_caption("Numworks Calculator")
@@ -45,7 +45,7 @@ def get_pixel(x: int, y: int) -> tuple:
     return __screen.get_at((x * __Ratio_ecran, y * __Ratio_ecran))[:3]
 
 
-def set_pixel(x: int, y: int, color: Iterable) -> None:
+def set_pixel(x: int, y: int, color: Sequence) -> None:
     """
     Colore le pixel (x,y)
 
@@ -56,7 +56,7 @@ def set_pixel(x: int, y: int, color: Iterable) -> None:
                 (x * __Ratio_ecran, y * __Ratio_ecran, __Ratio_ecran, __Ratio_ecran)))
 
 
-def draw_string(text: str, x: int, y: int, color: Iterable = "black", background: Iterable = "white") -> None:
+def draw_string(text: str, x: int, y: int, color: Sequence = "black", background: Sequence = "white") -> None:
     """
     Affiche un texte au pixel (x,y)
 
@@ -69,11 +69,12 @@ def draw_string(text: str, x: int, y: int, color: Iterable = "black", background
     __screen.blit(scale(__fonte_kandinsky.render(text, False, color, background),
                         (__Ratio_ecran * 10 * (len(text)-text.count("\u0301")),
                          18 * __Ratio_ecran)),
+                  #__fonte_kandinsky.render(text, False, color, background),
                   (x * __Ratio_ecran, y * __Ratio_ecran))
     flip()
 
 
-def fill_rect(x: int, y: int, w: int, h: int, col: Iterable) -> None:
+def fill_rect(x: int, y: int, w: int, h: int, col: Sequence) -> None:
     """
     Remplit un rectangle
 
